@@ -1,7 +1,12 @@
-all:hello_cpu
+OBJ = hello_cpu hello_gpu
 
-hello_cpu: hello_cpu.c
+all: $(OBJ)
+
+%: %.cu
+	nvcc -I. -o $@ $^
+
+%: %.c
 	gcc -o $@ $^
 
 clean:
-	rm -f hello_cpu
+	rm -f $(OBJ)
