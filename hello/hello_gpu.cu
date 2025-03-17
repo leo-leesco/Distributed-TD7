@@ -9,7 +9,7 @@ __global__ void compute_string(char *res, char *a, char *b, char *c,
 
   i = blockIdx.x * blockDim.x + threadIdx.x;
 
-  id(i < N) { res[i] = a[i] + b[i] + c[i]; }
+  if(i < length) { res[i] = a[i] + b[i] + c[i]; }
 }
 
 int main() {

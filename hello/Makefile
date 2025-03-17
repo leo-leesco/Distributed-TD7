@@ -3,7 +3,7 @@ OBJ = hello_cpu hello_gpu
 all: $(OBJ)
 
 %: %.cu
-	nvcc -I. -o $@ $^
+	nvcc -I../cuda_includes -o $@ $^
 
 %: %.c
 	gcc -o $@ $^
